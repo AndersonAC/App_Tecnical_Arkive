@@ -1,0 +1,43 @@
+Design --->
+-------------
+LOGO
+*LOGO + NOMECLIENTE + NUMEROTELEFONE + NUMEROCELULAR
+NOMECLIENTE + NUMEROTELEFONE + NUMEROCELULAR
+-------------
+	RECIBO
+			VALORaPAGAR
+
+  Recebi(emos) de NOMECLIENTE a importância supra
+de VALORaPAGAR ("valor por extenso"), proveniente de
+TIPOSERVIÇO - REF: REFERENCIA
+
+		Firmo o presente dando quitação
+
+   CIDADE/ESTADO, DIAFINALPAGAMENTO de DATAPAGAMENTO
+
+					| recibo quitado atrávez de    |
+					| dinheiro em espécie em moeda |
+	___________________________
+		Assinatura
+
+Programa --->
+
+*IMG LOGO
+
+Double valorAPagar
+String nomeEmpresa
+String nomeCliente
+ArrayList numeroTelefone
+ArrayList numeroCelular
+Data referencia // MES e ANO
+String cidade
+String Estado
+Static int diaFinalPagamento
+String dataPagamento 
+
+
+Objetivos --->
+
+Mandar imprimir
+Salvar PDF
+Gerar arquivo como banco de dados do programa como em EDII
