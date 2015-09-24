@@ -22,8 +22,9 @@ public class Empresa
 {
 	
 
-	public void cadastrar (String nome, int regime, int vencimento,double valorHonorario,
-			double pis, double cofins, double irpj,double cssl,boolean posto,boolean ativo )
+	public void cadastrar (String nome, int regime, int diaVencimento,double valorHonorario,
+			double pis, double cofins, double irpj_1, double irpj_2, double cssl_1, 
+                        double cssl_2, boolean posto, boolean status)
 	{
 		try
 		{
@@ -31,7 +32,8 @@ public class Empresa
 			
 			boolean ok = arquivo.createNewFile();		
 			if(ok)
-			CriarArquivo(nome, regime, vencimento, valorHonorario, pis, cofins, irpj, cssl, posto, ativo, arquivo);
+			CriarArquivo(nome, regime, diaVencimento, valorHonorario, pis, cofins,
+                                irpj_1, irpj_2, cssl_1, cssl_2, posto, status, arquivo);
 			else
 				System.out.println("Empresa já foi cadastrada!");
 		}
@@ -41,24 +43,26 @@ public class Empresa
 		}
 	}
 
-	private void CriarArquivo(String nome, int regime, int vencimento,
-			double valorHonorario, double pis, double cofins, double irpj,
-			double cssl, boolean posto, boolean ativo, File arquivo)
-			throws FileNotFoundException, IOException {
+	private void CriarArquivo(String nome, int regime, int diaVencimento,
+			double valorHonorario, double pis, double cofins, double irpj_1, 
+                        double irpj_2, double cssl_1, double cssl_2, boolean posto, 
+                        boolean status, File arquivo) throws FileNotFoundException, IOException {
 		
 		FileOutputStream fos = new FileOutputStream(arquivo);
 		DataOutputStream dos = new DataOutputStream(fos);
 
-		dos.writeUTF(String.format("%-100s", nome));
-		dos.writeInt(regime);
-		dos.writeInt(vencimento);
-		dos.writeDouble(valorHonorario);
-		dos.writeDouble(pis);
-		dos.writeDouble(cofins);
-		dos.writeDouble(irpj);
-		dos.writeDouble(cssl);
-		dos.writeBoolean(posto);
-		dos.writeBoolean(ativo);
+		dos.writeUTF(String.format("%-100s", nome));//01\\Ate 100 de tamanho de nome
+		dos.writeInt(regime);                       //02\\int 1-Simples, 2-Presumido, 3-Real
+		dos.writeInt(diaVencimento);                //11\\int 1-31 fazer tratamento para dias 31-30-29-28
+		dos.writeDouble(valorHonorario);            //10\\double a pagar
+		dos.writeDouble(pis);                       //04\\double porcentagem
+		dos.writeDouble(cofins);                    //05\\double porcentagem
+		dos.writeDouble(irpj_1);                    //06\\IRPJ1 double porcentagem
+		dos.writeDouble(irpj_2);                    //07\\IRPJ2 double porcentagem
+		dos.writeDouble(cssl_1);                    //08\\CSSL1 double porcentagem
+		dos.writeDouble(cssl_2);                    //09\\CSSL2 double porcentagem
+		dos.writeBoolean(posto);                    //03\\Posto Combustível T or F
+		dos.writeBoolean(status);                   //12\\Ativado ou desativado -|- T or F
 		
 		dos.close();
 	}
@@ -73,19 +77,29 @@ public class Empresa
 			String nomeAux;
 
 			nomeAux = dis.readUTF();
-			System.out.println(nomeAux);
+			System.out.println(nomeAux);            //Nome Empresa
 			
-			System.out.println(dis.readInt());
-			System.out.println(dis.readInt());
+			//System.out.println(dis.readInt());
+                        int regime = dis.readInt();             //Regime
+                        if(regime==1){
+                            System.out.println("Simples");
+                        }else if(regime==2){
+                            System.out.println("Presumido");
+                        }else if(regime==3){
+                            System.out.println("Real");
+                        }
+			System.out.println(dis.readInt());      //Dia
 			
-			System.out.println(dis.readDouble());
-			System.out.println(dis.readDouble());
-			System.out.println(dis.readDouble());
-			System.out.println(dis.readDouble());
-			System.out.println(dis.readDouble());
+			System.out.println(dis.readDouble());   //Valor
+			System.out.println(dis.readDouble());   //Alíquotas-PIS
+			System.out.println(dis.readDouble());   //Alíquotas-COFINS
+			System.out.println(dis.readDouble());   //Alíquotas-IRPJ_1
+			System.out.println(dis.readDouble());   //Alíquotas-IRPJ_2
+			System.out.println(dis.readDouble());   //Alíquotas-CSSL_1
+			System.out.println(dis.readDouble());   //Alíquotas-CSSL_2
 
-			System.out.println(dis.readBoolean());
-			System.out.println(dis.readBoolean());
+			System.out.println(dis.readBoolean());  //Posto
+			System.out.println(dis.readBoolean());  //Status
 			
 
 		}  catch (IOException e) {

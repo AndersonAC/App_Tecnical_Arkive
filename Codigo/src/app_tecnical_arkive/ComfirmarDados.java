@@ -29,30 +29,30 @@ public class ComfirmarDados extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbNomeEmpresa = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lbRegime = new javax.swing.JLabel();
+        lbPostoCombustivel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lbCOFINS = new javax.swing.JLabel();
+        lbPIS = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lbIRPJ_01 = new javax.swing.JLabel();
+        lbCSSL_01 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        lbIRPJ_02 = new javax.swing.JLabel();
+        lbCSSL_02 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
+        lbStatus = new javax.swing.JLabel();
+        lbValorHonorario = new javax.swing.JLabel();
+        lbDiaVencimento = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -61,7 +61,7 @@ public class ComfirmarDados extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Nome Empresa:");
 
-        jLabel2.setText("Teste corp");
+        lbNomeEmpresa.setText("Teste corp");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Regime:");
@@ -69,9 +69,9 @@ public class ComfirmarDados extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Posto de Combustível:");
 
-        jLabel6.setText("Presumido");
+        lbRegime.setText("Presumido");
 
-        jLabel7.setText("Não");
+        lbPostoCombustivel.setText("Não");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Alíquotas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
@@ -82,26 +82,26 @@ public class ComfirmarDados extends javax.swing.JFrame {
         jLabel9.setText("COFINS:");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setText("COFINS:");
+        jLabel10.setText("IRPJ:");
 
-        jLabel11.setText("3%");
+        lbCOFINS.setText("3%");
 
-        jLabel12.setText("0,65%");
+        lbPIS.setText("0.65%");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("CSSL:");
 
-        jLabel14.setText("1,2%");
+        lbIRPJ_01.setText("1.2%");
 
-        jLabel15.setText("1,08%");
+        lbCSSL_01.setText("1.08%");
 
         jLabel16.setText("-|-");
 
         jLabel17.setText("-|-");
 
-        jLabel18.setText("0,65%");
+        lbIRPJ_02.setText("0.65%");
 
-        jLabel19.setText("0,65%");
+        lbCSSL_02.setText("0.65%");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -114,8 +114,8 @@ public class ComfirmarDados extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11))
+                    .addComponent(lbPIS)
+                    .addComponent(lbCOFINS))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
@@ -123,17 +123,17 @@ public class ComfirmarDados extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
+                        .addComponent(lbCSSL_01)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel17)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel19))
+                        .addComponent(lbCSSL_02))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
+                        .addComponent(lbIRPJ_01)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel16)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel18)))
+                        .addComponent(lbIRPJ_02)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -143,18 +143,18 @@ public class ComfirmarDados extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel14)
+                    .addComponent(lbPIS)
+                    .addComponent(lbIRPJ_01)
                     .addComponent(jLabel16)
-                    .addComponent(jLabel18))
+                    .addComponent(lbIRPJ_02))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel11)
+                    .addComponent(lbCOFINS)
                     .addComponent(jLabel13)
-                    .addComponent(jLabel15)
+                    .addComponent(lbCSSL_01)
                     .addComponent(jLabel17)
-                    .addComponent(jLabel19))
+                    .addComponent(lbCSSL_02))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -167,11 +167,11 @@ public class ComfirmarDados extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("Status:");
 
-        jLabel23.setText("Ativo");
+        lbStatus.setText("Ativo");
 
-        jLabel24.setText("50 $");
+        lbValorHonorario.setText("50 $");
 
-        jLabel25.setText("31");
+        lbDiaVencimento.setText("31");
 
         jButton1.setText("Salvar");
 
@@ -190,27 +190,27 @@ public class ComfirmarDados extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel22)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel23))
+                                .addComponent(lbStatus))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel2))
+                                .addComponent(lbNomeEmpresa))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel6)
+                                .addComponent(lbRegime)
                                 .addGap(64, 64, 64)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7))
+                                .addComponent(lbPostoCombustivel))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel24))
+                                .addComponent(lbValorHonorario))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel25)))
+                                .addComponent(lbDiaVencimento)))
                         .addGap(0, 24, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,27 +227,27 @@ public class ComfirmarDados extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(lbNomeEmpresa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                    .addComponent(lbRegime)
+                    .addComponent(lbPostoCombustivel))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jLabel24))
+                    .addComponent(lbValorHonorario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jLabel25))
+                    .addComponent(lbDiaVencimento))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jLabel23))
+                    .addComponent(lbStatus))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,29 +317,50 @@ public class ComfirmarDados extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbCOFINS;
+    private javax.swing.JLabel lbCSSL_01;
+    private javax.swing.JLabel lbCSSL_02;
+    private javax.swing.JLabel lbDiaVencimento;
+    private javax.swing.JLabel lbIRPJ_01;
+    private javax.swing.JLabel lbIRPJ_02;
+    private javax.swing.JLabel lbNomeEmpresa;
+    private javax.swing.JLabel lbPIS;
+    private javax.swing.JLabel lbPostoCombustivel;
+    private javax.swing.JLabel lbRegime;
+    private javax.swing.JLabel lbStatus;
+    private javax.swing.JLabel lbValorHonorario;
     // End of variables declaration//GEN-END:variables
+    public void receberDadosCadastrais(String nomeEmpresa, String regime,
+            String postoCombustivel, String pis, String cofins, String irpj_01, 
+            String irpj_02, String cssl_01, String cssl_02, String valorHonorario,
+            String diaVencimento, String status){
+        
+        lbNomeEmpresa.setText(nomeEmpresa);
+        lbRegime.setText(regime);
+        lbPostoCombustivel.setText(postoCombustivel);
+        lbPIS.setText(pis);
+        lbCOFINS.setText(cofins);
+        
+        lbIRPJ_01.setText(irpj_01);
+        lbIRPJ_02.setText(irpj_02);
+        lbCSSL_01.setText(cssl_01);
+        lbCSSL_02.setText(cssl_02);
+        
+        lbValorHonorario.setText(valorHonorario);
+        lbDiaVencimento.setText(diaVencimento);
+        lbStatus.setText(status);
+        
+    }
 }

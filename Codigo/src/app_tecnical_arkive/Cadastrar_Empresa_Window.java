@@ -32,14 +32,14 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         buttonGroupModeloCalculo = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tfNomeEmpresa = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         rbSimples = new javax.swing.JRadioButton();
         rbPresumido = new javax.swing.JRadioButton();
         rbReal = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        rbPostoCombustivelSim = new javax.swing.JRadioButton();
+        rbPostoCombustivelNao = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         tfPIS = new javax.swing.JTextField();
@@ -52,11 +52,11 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         tfIRPJ02 = new javax.swing.JTextField();
         tfCSSL02 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        tfValorHonorario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tfDiaVencimento = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        xboxStatus = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -122,12 +122,12 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Posto de Combustível"));
 
-        buttonGroupPostoDeCombustivel.add(jRadioButton4);
-        jRadioButton4.setText("Sim");
+        buttonGroupPostoDeCombustivel.add(rbPostoCombustivelSim);
+        rbPostoCombustivelSim.setText("Sim");
 
-        buttonGroupPostoDeCombustivel.add(jRadioButton5);
-        jRadioButton5.setSelected(true);
-        jRadioButton5.setText("Não");
+        buttonGroupPostoDeCombustivel.add(rbPostoCombustivelNao);
+        rbPostoCombustivelNao.setSelected(true);
+        rbPostoCombustivelNao.setText("Não");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -135,9 +135,9 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton4)
+                .addComponent(rbPostoCombustivelSim)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(rbPostoCombustivelNao)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -145,8 +145,8 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(3, 3, 3)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5))
+                    .addComponent(rbPostoCombustivelSim)
+                    .addComponent(rbPostoCombustivelNao))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -154,12 +154,12 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
 
         jLabel2.setText("PIS:");
 
-        tfPIS.setText("0,65");
+        tfPIS.setText("0.65");
         tfPIS.setEnabled(false);
 
         jLabel3.setText("IRPJ:");
 
-        tfIRPJ01.setText("1,2");
+        tfIRPJ01.setText("1.2");
         tfIRPJ01.setEnabled(false);
 
         jLabel4.setText("COFINS:");
@@ -169,7 +169,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
 
         jLabel5.setText("CSSL:");
 
-        tfCSSL01.setText("1,08");
+        tfCSSL01.setText("1.08");
         tfCSSL01.setEnabled(false);
 
         tfIRPJ02.setEnabled(false);
@@ -234,8 +234,8 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Status da Empresa"));
 
-        jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Ativo");
+        xboxStatus.setSelected(true);
+        xboxStatus.setText("Ativo");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -243,18 +243,23 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox1)
+                .addComponent(xboxStatus)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jCheckBox1))
+                .addComponent(xboxStatus))
         );
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Salvar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("Cancelar");
@@ -311,17 +316,17 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2))
+                        .addComponent(tfNomeEmpresa))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfValorHonorario, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tfDiaVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -341,7 +346,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField2)
+                    .addComponent(tfNomeEmpresa)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -356,11 +361,11 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfValorHonorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tfDiaVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,6 +409,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbCalculo02.setEnabled(false);
         rbCalculo01.setSelected(true);
             
+        fRegime = "Simples";
     }//GEN-LAST:event_rbSimplesMouseClicked
 
     private void rbPresumidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbPresumidoMouseClicked
@@ -415,6 +421,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbCalculo01.setEnabled(true);
         rbCalculo02.setEnabled(true);
         
+        fRegime = "Presumido";
     }//GEN-LAST:event_rbPresumidoMouseClicked
 
     private void rbRealMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbRealMouseClicked
@@ -427,6 +434,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbCalculo01.setEnabled(true);
         rbCalculo02.setEnabled(true);
         
+        fRegime = "Real";
     }//GEN-LAST:event_rbRealMouseClicked
 
     private void rbCalculo01MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbCalculo01MousePressed
@@ -438,6 +446,8 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         tfCOFINS.setText("3");
         tfIRPJ01.setText("1,2");
         tfCSSL01.setText("1,08");
+        
+        
     }//GEN-LAST:event_rbCalculo01MousePressed
 
     private void rbCalculo02MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbCalculo02MousePressed
@@ -452,6 +462,42 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         tfCSSL01.setText("8");
         tfCSSL02.setText("15");
     }//GEN-LAST:event_rbCalculo02MousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        if (rbSimples.isSelected()) {
+            fRegime = "Simples";
+        }else if (rbPresumido.isSelected()) {
+            fRegime = "Presumido";
+        }else if (rbReal.isSelected()) {
+            fRegime = "Real";
+        }
+        
+        if(rbPostoCombustivelSim.isSelected()){
+            fPostoCombustivel = "Sim";
+        }else if (rbPostoCombustivelNao.isSelected()) {
+            fPostoCombustivel = "Não";
+        }
+        
+        if (rbCalculo01.isSelected()) {
+            fIRPJ_02 = "0";
+            fCSSL_02 = "0";
+        }else if(rbCalculo02.isSelected()){
+            fIRPJ_02 = tfIRPJ02.getText();
+            fCSSL_02 = tfCSSL02.getText();
+        }
+        
+        if (xboxStatus.isSelected()) {
+            fStatus = "Ativo";
+        }
+        
+        ComfirmarDados enviarDados = new ComfirmarDados();
+        enviarDados.setVisible(true);
+        enviarDados.receberDadosCadastrais(tfNomeEmpresa.getText(), fRegime, fPostoCombustivel,
+                tfPIS.getText(), tfCOFINS.getText(), tfIRPJ01.getText(), fIRPJ_02, tfCSSL01.getText(), 
+                fCSSL_02, tfValorHonorario.getText(), tfDiaVencimento.getText(), fStatus);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -494,7 +540,6 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroupRegime;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -508,21 +553,23 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JRadioButton rbCalculo01;
     private javax.swing.JRadioButton rbCalculo02;
+    private javax.swing.JRadioButton rbPostoCombustivelNao;
+    private javax.swing.JRadioButton rbPostoCombustivelSim;
     private javax.swing.JRadioButton rbPresumido;
     private javax.swing.JRadioButton rbReal;
     private javax.swing.JRadioButton rbSimples;
     private javax.swing.JTextField tfCOFINS;
     private javax.swing.JTextField tfCSSL01;
     private javax.swing.JTextField tfCSSL02;
+    private javax.swing.JTextField tfDiaVencimento;
     private javax.swing.JTextField tfIRPJ01;
     private javax.swing.JTextField tfIRPJ02;
+    private javax.swing.JTextField tfNomeEmpresa;
     private javax.swing.JTextField tfPIS;
+    private javax.swing.JTextField tfValorHonorario;
+    private javax.swing.JCheckBox xboxStatus;
     // End of variables declaration//GEN-END:variables
+    String fRegime, fPostoCombustivel, fIRPJ_02, fCSSL_02, fStatus;
 }

@@ -41,7 +41,7 @@ public class Principal {
 
 			switch (opcao) {
 			case 'C':
-				empresa.cadastrar("teste", 1, 5, 500.1, 1.5, 2.5, 1.3, 1.8, false, true);
+				empresa.cadastrar("teste", 1, 5, 500.1, 1.5, 2.5, 1.5, 1.7, 1.3, 1.8, false, true);
 				empresa.Detalhar("teste");
 				break;
 				
