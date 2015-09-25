@@ -57,8 +57,8 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         tfDiaVencimento = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         xboxStatus = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         rbCalculo01 = new javax.swing.JRadioButton();
         rbCalculo02 = new javax.swing.JRadioButton();
@@ -253,16 +253,21 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                 .addComponent(xboxStatus))
         );
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setText("Cancelar");
+        btnCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Modelo de Cálculo"));
 
@@ -336,9 +341,9 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -370,9 +375,9 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -409,7 +414,6 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbCalculo02.setEnabled(false);
         rbCalculo01.setSelected(true);
             
-        fRegime = "Simples";
     }//GEN-LAST:event_rbSimplesMouseClicked
 
     private void rbPresumidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbPresumidoMouseClicked
@@ -421,7 +425,6 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbCalculo01.setEnabled(true);
         rbCalculo02.setEnabled(true);
         
-        fRegime = "Presumido";
     }//GEN-LAST:event_rbPresumidoMouseClicked
 
     private void rbRealMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbRealMouseClicked
@@ -434,7 +437,6 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbCalculo01.setEnabled(true);
         rbCalculo02.setEnabled(true);
         
-        fRegime = "Real";
     }//GEN-LAST:event_rbRealMouseClicked
 
     private void rbCalculo01MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbCalculo01MousePressed
@@ -463,7 +465,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         tfCSSL02.setText("15");
     }//GEN-LAST:event_rbCalculo02MousePressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         
         if (rbSimples.isSelected()) {
@@ -490,14 +492,32 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         
         if (xboxStatus.isSelected()) {
             fStatus = "Ativo";
+        }else{
+            fStatus = "Desativo";
         }
         
-        ComfirmarDados enviarDados = new ComfirmarDados();
+        if(enviarDados == null){
+        enviarDados = new ComfirmarDados();
         enviarDados.setVisible(true);
         enviarDados.receberDadosCadastrais(tfNomeEmpresa.getText(), fRegime, fPostoCombustivel,
                 tfPIS.getText(), tfCOFINS.getText(), tfIRPJ01.getText(), fIRPJ_02, tfCSSL01.getText(), 
                 fCSSL_02, tfValorHonorario.getText(), tfDiaVencimento.getText(), fStatus);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }else{
+        enviarDados.setVisible(true);
+        enviarDados.receberDadosCadastrais(tfNomeEmpresa.getText(), fRegime, fPostoCombustivel,
+                tfPIS.getText(), tfCOFINS.getText(), tfIRPJ01.getText(), fIRPJ_02, tfCSSL01.getText(), 
+                fCSSL_02, tfValorHonorario.getText(), tfDiaVencimento.getText(), fStatus);
+        } 
+        Cadastrar_Empresa_Window.this.hide();
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        ListaEmpresa listaEmpresaWindow = new ListaEmpresa();
+        listaEmpresaWindow.setVisible(true);
+        
+        Cadastrar_Empresa_Window.this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -535,11 +555,11 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.ButtonGroup buttonGroupModeloCalculo;
     private javax.swing.ButtonGroup buttonGroupPostoDeCombustivel;
     private javax.swing.ButtonGroup buttonGroupRegime;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -572,4 +592,72 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
     private javax.swing.JCheckBox xboxStatus;
     // End of variables declaration//GEN-END:variables
     String fRegime, fPostoCombustivel, fIRPJ_02, fCSSL_02, fStatus;
+    ComfirmarDados enviarDados;
+    
+    public void VoltarDadosCadastrais(String nomeEmpresa, String regime,
+            String postoCombustivel, String pis, String cofins, String irpj_01, 
+            String irpj_02, String cssl_01, String cssl_02, String valorHonorario,
+            String diaVencimento, String status){
+        
+        tfNomeEmpresa.setText(nomeEmpresa);
+        
+        if(regime == "Simples"){
+            rbSimples.setSelected(true);
+        }if(regime == "Presumido"){
+            rbPresumido.setSelected(true);
+        }if(regime == "Real"){
+            rbReal.setSelected(true);
+        }
+        
+        if(postoCombustivel == "Sim"){
+            rbPostoCombustivelSim.setSelected(true);
+        }if(postoCombustivel == "Não"){
+            rbPostoCombustivelNao.setSelected(true);
+        }
+        
+        tfPIS.setText(pis);
+        tfCOFINS.setText(cofins);
+        
+        tfIRPJ01.setText(irpj_01);
+        tfCSSL01.setText(cssl_01);
+        //tfIRPJ02.setText(irpj_02);
+        //tfCSSL02.setText(cssl_02);
+        if (irpj_02 == "0" && cssl_02 == "0") {
+            rbCalculo01.setSelected(true);
+            tfPIS.setEnabled(true);
+            tfCOFINS.setEnabled(true);
+            tfCSSL01.setEnabled(true);
+            tfIRPJ01.setEnabled(true);
+            rbCalculo01.setEnabled(true);
+            rbCalculo02.setEnabled(true);
+            
+            tfIRPJ02.setText("");
+            tfCSSL02.setText("");
+        }else{
+            rbCalculo02.setSelected(true);
+            tfPIS.setEnabled(true);
+            tfCOFINS.setEnabled(true);
+            tfCSSL01.setEnabled(true);
+            tfIRPJ01.setEnabled(true);
+            tfIRPJ02.setEnabled(true);
+            tfCSSL02.setEnabled(true);
+            
+            rbCalculo01.setEnabled(true);
+            rbCalculo02.setEnabled(true);
+            
+            tfIRPJ02.setText(irpj_02);
+            tfCSSL02.setText(cssl_02);
+        }
+        
+        tfValorHonorario.setText(valorHonorario);
+        tfDiaVencimento.setText(diaVencimento);
+        
+        if (status == "Ativo") {
+            xboxStatus.setSelected(true);
+        }else{
+            xboxStatus.setSelected(false);
+        }
+        
+    }
+    
 }

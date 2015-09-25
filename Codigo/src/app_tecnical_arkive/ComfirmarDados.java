@@ -54,7 +54,7 @@ public class ComfirmarDados extends javax.swing.JFrame {
         lbValorHonorario = new javax.swing.JLabel();
         lbDiaVencimento = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -175,7 +175,12 @@ public class ComfirmarDados extends javax.swing.JFrame {
 
         jButton1.setText("Salvar");
 
-        jButton2.setText("Voltar");
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -213,13 +218,13 @@ public class ComfirmarDados extends javax.swing.JFrame {
                                 .addComponent(lbDiaVencimento)))
                         .addGap(0, 24, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnVoltar, jButton1});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,12 +255,12 @@ public class ComfirmarDados extends javax.swing.JFrame {
                     .addComponent(lbStatus))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnVoltar, jButton1});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,6 +281,28 @@ public class ComfirmarDados extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+        
+        if(voltarParaCadastro == null){
+            voltarParaCadastro = new Cadastrar_Empresa_Window();
+            voltarParaCadastro.setVisible(true);
+            voltarParaCadastro.VoltarDadosCadastrais(lbNomeEmpresa.getText(),
+                    lbRegime.getText(), lbPostoCombustivel.getText(), lbPIS.getText(),
+                    lbCOFINS.getText(), lbIRPJ_01.getText(), lbIRPJ_02.getText(),
+                    lbCSSL_01.getText(), lbCSSL_02.getText(), lbValorHonorario.getText(),
+                    lbDiaVencimento.getText(), lbStatus.getText());
+        }else{
+            voltarParaCadastro.setVisible(true);
+            voltarParaCadastro.VoltarDadosCadastrais(lbNomeEmpresa.getText(),
+                    lbRegime.getText(), lbPostoCombustivel.getText(), lbPIS.getText(),
+                    lbCOFINS.getText(), lbIRPJ_01.getText(), lbIRPJ_02.getText(),
+                    lbCSSL_01.getText(), lbCSSL_02.getText(), lbValorHonorario.getText(),
+                    lbDiaVencimento.getText(), lbStatus.getText());
+        }
+        ComfirmarDados.this.hide();
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,8 +340,8 @@ public class ComfirmarDados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -342,6 +369,9 @@ public class ComfirmarDados extends javax.swing.JFrame {
     private javax.swing.JLabel lbStatus;
     private javax.swing.JLabel lbValorHonorario;
     // End of variables declaration//GEN-END:variables
+    
+    Cadastrar_Empresa_Window voltarParaCadastro;
+    
     public void receberDadosCadastrais(String nomeEmpresa, String regime,
             String postoCombustivel, String pis, String cofins, String irpj_01, 
             String irpj_02, String cssl_01, String cssl_02, String valorHonorario,
