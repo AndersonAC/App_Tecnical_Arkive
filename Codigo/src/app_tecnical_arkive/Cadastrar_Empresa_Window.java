@@ -457,7 +457,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         tfCSSL02.setEnabled(true);
         tfIRPJ02.setEnabled(true);
         
-        tfPIS.setText("0,65");
+        tfPIS.setText("0.65");
         tfCOFINS.setText("3");
         tfIRPJ01.setText("12");
         tfIRPJ02.setText("9");
@@ -483,8 +483,8 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         }
         
         if (rbCalculo01.isSelected()) {
-            fIRPJ_02 = "0";
-            fCSSL_02 = "0";
+            fIRPJ_02 = "";
+            fCSSL_02 = "";
         }else if(rbCalculo02.isSelected()){
             fIRPJ_02 = tfIRPJ02.getText();
             fCSSL_02 = tfCSSL02.getText();
@@ -497,7 +497,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         }
         
         if(enviarDados == null){
-        enviarDados = new ComfirmarDados();
+        enviarDados = new ConfirmarDados();
         enviarDados.setVisible(true);
         enviarDados.receberDadosCadastrais(tfNomeEmpresa.getText(), fRegime, fPostoCombustivel,
                 tfPIS.getText(), tfCOFINS.getText(), tfIRPJ01.getText(), fIRPJ_02, tfCSSL01.getText(), 
@@ -592,7 +592,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
     private javax.swing.JCheckBox xboxStatus;
     // End of variables declaration//GEN-END:variables
     String fRegime, fPostoCombustivel, fIRPJ_02, fCSSL_02, fStatus;
-    ComfirmarDados enviarDados;
+    ConfirmarDados enviarDados;
     
     public void VoltarDadosCadastrais(String nomeEmpresa, String regime,
             String postoCombustivel, String pis, String cofins, String irpj_01, 
@@ -620,9 +620,8 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         
         tfIRPJ01.setText(irpj_01);
         tfCSSL01.setText(cssl_01);
-        //tfIRPJ02.setText(irpj_02);
-        //tfCSSL02.setText(cssl_02);
-        if (irpj_02 == "0" && cssl_02 == "0") {
+        
+        if (irpj_02 == "" && cssl_02 == "") {
             rbCalculo01.setSelected(true);
             tfPIS.setEnabled(true);
             tfCOFINS.setEnabled(true);

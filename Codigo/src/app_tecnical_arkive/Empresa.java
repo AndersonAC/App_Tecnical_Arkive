@@ -28,7 +28,7 @@ public class Empresa
 	{
 		try
 		{
-			File arquivo = new File(nome+".bitae");
+			File arquivo = new File("D:\\"+nome+".bitae");
 			
 			boolean ok = arquivo.createNewFile();		
 			if(ok)
@@ -69,7 +69,7 @@ public class Empresa
 	
 	public void Detalhar(String nome)
 	{
-		File arquivo = new File(nome+".bitae");
+		File arquivo = new File("D:\\"+nome+".bitae");
 		try {
 			FileInputStream fis = new FileInputStream(arquivo);
 			DataInputStream dis = new DataInputStream(fis);

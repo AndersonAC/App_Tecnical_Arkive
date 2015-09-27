@@ -9,12 +9,12 @@ package app_tecnical_arkive;
  *
  * @author Andy
  */
-public class ComfirmarDados extends javax.swing.JFrame {
+public class ConfirmarDados extends javax.swing.JFrame {
 
     /**
-     * Creates new form ComfirmarDados
+     * Creates new form ConfirmarDados
      */
-    public ComfirmarDados() {
+    public ConfirmarDados() {
         initComponents();
     }
 
@@ -53,7 +53,7 @@ public class ComfirmarDados extends javax.swing.JFrame {
         lbStatus = new javax.swing.JLabel();
         lbValorHonorario = new javax.swing.JLabel();
         lbDiaVencimento = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnConfirmar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -173,7 +173,12 @@ public class ComfirmarDados extends javax.swing.JFrame {
 
         lbDiaVencimento.setText("31");
 
-        jButton1.setText("Salvar");
+        btnConfirmar.setText("Salvar");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -220,11 +225,11 @@ public class ComfirmarDados extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnVoltar, jButton1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnConfirmar, btnVoltar});
 
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,11 +261,11 @@ public class ComfirmarDados extends javax.swing.JFrame {
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnVoltar, jButton1});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnConfirmar, btnVoltar});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -301,8 +306,56 @@ public class ComfirmarDados extends javax.swing.JFrame {
                     lbCSSL_01.getText(), lbCSSL_02.getText(), lbValorHonorario.getText(),
                     lbDiaVencimento.getText(), lbStatus.getText());
         }
-        ComfirmarDados.this.hide();
+        ConfirmarDados.this.hide();
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        // TODO add your handling code here:
+        
+        nome = lbNomeEmpresa.getText();
+        
+        if (lbRegime.getText() == "Simples") {
+            regime = 0;
+        }else if (lbRegime.getText() == "Presumido") {
+            regime = 1;
+        }else if (lbRegime.getText() == "Real") {
+            regime = 2;
+        }
+        
+        diaVencimento = Integer.parseInt(lbDiaVencimento.getText());
+        
+        valorHonorário = Double.parseDouble(lbValorHonorario.getText());
+        pis = Double.parseDouble(lbPIS.getText());
+        cofins = Double.parseDouble(lbCOFINS.getText());
+        irpj_1 = Double.parseDouble(lbIRPJ_01.getText());
+        cssl_1 = Double.parseDouble(lbCSSL_01.getText());
+        
+        if (lbIRPJ_02.getText() == "" && lbCSSL_02.getText() == "") {
+            irpj_2 = 0;
+            cssl_2 = 0;
+        }else{
+            irpj_2 = Double.parseDouble(lbIRPJ_02.getText());
+            cssl_2 = Double.parseDouble(lbCSSL_02.getText());
+        }
+        
+        if (lbPostoCombustivel.getText() == "Sim") {
+            posto = true;
+        }else{
+            posto = false;
+        }
+        
+        if (lbStatus.getText() == "Ativo") {
+            status = true;
+        }else{
+            status = false;
+        }
+        
+        Empresa empresa = new Empresa();
+        empresa.cadastrar(nome, regime, diaVencimento, valorHonorário,
+                pis, cofins, irpj_1, irpj_2, cssl_1, cssl_2, posto, status);
+        empresa.Detalhar(nome);
+        
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,27 +374,28 @@ public class ComfirmarDados extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ComfirmarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConfirmarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ComfirmarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConfirmarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ComfirmarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConfirmarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ComfirmarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ConfirmarDados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ComfirmarDados().setVisible(true);
+                new ConfirmarDados().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -371,6 +425,10 @@ public class ComfirmarDados extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     Cadastrar_Empresa_Window voltarParaCadastro;
+    String nome;
+    int regime, diaVencimento;
+    double valorHonorário, pis, cofins, irpj_1, irpj_2, cssl_1, cssl_2;
+    boolean posto, status;
     
     public void receberDadosCadastrais(String nomeEmpresa, String regime,
             String postoCombustivel, String pis, String cofins, String irpj_01, 
