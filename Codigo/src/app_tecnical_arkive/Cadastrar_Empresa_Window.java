@@ -37,7 +37,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbSimples = new javax.swing.JRadioButton();
         rbPresumido = new javax.swing.JRadioButton();
         rbReal = new javax.swing.JRadioButton();
-        jPanel3 = new javax.swing.JPanel();
+        jpPostoCombustivel = new javax.swing.JPanel();
         rbPostoCombustivelSim = new javax.swing.JRadioButton();
         rbPostoCombustivelNao = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
@@ -73,17 +73,17 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         buttonGroupRegime.add(rbSimples);
         rbSimples.setSelected(true);
         rbSimples.setText("Simples");
-        rbSimples.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbSimplesMouseClicked(evt);
+        rbSimples.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbSimplesActionPerformed(evt);
             }
         });
 
         buttonGroupRegime.add(rbPresumido);
         rbPresumido.setText("Presumido");
-        rbPresumido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbPresumidoMouseClicked(evt);
+        rbPresumido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbPresumidoActionPerformed(evt);
             }
         });
 
@@ -120,31 +120,34 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                 .addGap(46, 46, 46))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Posto de Combustível"));
+        jpPostoCombustivel.setBorder(javax.swing.BorderFactory.createTitledBorder("Posto de Combustível"));
+        jpPostoCombustivel.setEnabled(false);
 
         buttonGroupPostoDeCombustivel.add(rbPostoCombustivelSim);
         rbPostoCombustivelSim.setText("Sim");
+        rbPostoCombustivelSim.setEnabled(false);
 
         buttonGroupPostoDeCombustivel.add(rbPostoCombustivelNao);
         rbPostoCombustivelNao.setSelected(true);
         rbPostoCombustivelNao.setText("Não");
+        rbPostoCombustivelNao.setEnabled(false);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpPostoCombustivelLayout = new javax.swing.GroupLayout(jpPostoCombustivel);
+        jpPostoCombustivel.setLayout(jpPostoCombustivelLayout);
+        jpPostoCombustivelLayout.setHorizontalGroup(
+            jpPostoCombustivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpPostoCombustivelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rbPostoCombustivelSim)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbPostoCombustivelNao)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jpPostoCombustivelLayout.setVerticalGroup(
+            jpPostoCombustivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpPostoCombustivelLayout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jpPostoCombustivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbPostoCombustivelSim)
                     .addComponent(rbPostoCombustivelNao))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -275,9 +278,9 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbCalculo01.setSelected(true);
         rbCalculo01.setText("Cálculo I");
         rbCalculo01.setEnabled(false);
-        rbCalculo01.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                rbCalculo01MousePressed(evt);
+        rbCalculo01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCalculo01ActionPerformed(evt);
             }
         });
 
@@ -337,7 +340,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jpPostoCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,7 +358,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpPostoCombustivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,32 +404,6 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rbSimplesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbSimplesMouseClicked
-        // TODO add your handling code here:
-        tfPIS.setEnabled(false);
-        tfCOFINS.setEnabled(false);
-        tfCSSL01.setEnabled(false);
-        tfIRPJ01.setEnabled(false);
-        tfCSSL02.setEnabled(false);
-        tfIRPJ02.setEnabled(false);
-            
-        rbCalculo01.setEnabled(false);
-        rbCalculo02.setEnabled(false);
-        rbCalculo01.setSelected(true);
-            
-    }//GEN-LAST:event_rbSimplesMouseClicked
-
-    private void rbPresumidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbPresumidoMouseClicked
-        // TODO add your handling code here:
-        tfPIS.setEnabled(true);
-        tfCOFINS.setEnabled(true);
-        tfCSSL01.setEnabled(true);
-        tfIRPJ01.setEnabled(true);
-        rbCalculo01.setEnabled(true);
-        rbCalculo02.setEnabled(true);
-        
-    }//GEN-LAST:event_rbPresumidoMouseClicked
-
     private void rbRealMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbRealMouseClicked
         // TODO add your handling code here:
         tfPIS.setEnabled(true);
@@ -438,32 +415,6 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         rbCalculo02.setEnabled(true);
         
     }//GEN-LAST:event_rbRealMouseClicked
-
-    private void rbCalculo01MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbCalculo01MousePressed
-        // TODO add your handling code here:
-        tfCSSL02.setEnabled(false);
-        tfIRPJ02.setEnabled(false);
-        
-        tfPIS.setText("0,65");
-        tfCOFINS.setText("3");
-        tfIRPJ01.setText("1,2");
-        tfCSSL01.setText("1,08");
-        
-        
-    }//GEN-LAST:event_rbCalculo01MousePressed
-
-    private void rbCalculo02MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbCalculo02MousePressed
-        // TODO add your handling code here:
-        tfCSSL02.setEnabled(true);
-        tfIRPJ02.setEnabled(true);
-        
-        tfPIS.setText("0.65");
-        tfCOFINS.setText("3");
-        tfIRPJ01.setText("12");
-        tfIRPJ02.setText("9");
-        tfCSSL01.setText("8");
-        tfCSSL02.setText("15");
-    }//GEN-LAST:event_rbCalculo02MousePressed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
@@ -519,6 +470,65 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         Cadastrar_Empresa_Window.this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void rbPresumidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPresumidoActionPerformed
+        // TODO add your handling code here:
+        jpPostoCombustivel.setEnabled(true);
+        rbPostoCombustivelSim.setEnabled(true);
+        rbPostoCombustivelNao.setEnabled(true);
+        
+        tfPIS.setEnabled(true);
+        tfCOFINS.setEnabled(true);
+        tfCSSL01.setEnabled(true);
+        tfIRPJ01.setEnabled(true);
+        rbCalculo01.setEnabled(true);
+        rbCalculo02.setEnabled(true);
+
+    }//GEN-LAST:event_rbPresumidoActionPerformed
+
+    private void rbSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSimplesActionPerformed
+        // TODO add your handling code here:
+        jpPostoCombustivel.setEnabled(false);
+        rbPostoCombustivelSim.setEnabled(false);
+        rbPostoCombustivelNao.setEnabled(false);
+        
+        tfPIS.setEnabled(false);
+        tfCOFINS.setEnabled(false);
+        tfCSSL01.setEnabled(false);
+        tfIRPJ01.setEnabled(false);
+        tfCSSL02.setEnabled(false);
+        tfIRPJ02.setEnabled(false);
+
+        rbCalculo01.setEnabled(false);
+        rbCalculo02.setEnabled(false);
+        rbCalculo01.setSelected(true);
+        
+    }//GEN-LAST:event_rbSimplesActionPerformed
+
+    private void rbCalculo01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCalculo01ActionPerformed
+        // TODO add your handling code here:
+        tfCSSL02.setEnabled(false);
+        tfIRPJ02.setEnabled(false);
+        
+        tfPIS.setText("0,65");
+        tfCOFINS.setText("3");
+        tfIRPJ01.setText("1,2");
+        tfCSSL01.setText("1,08");
+
+    }//GEN-LAST:event_rbCalculo01ActionPerformed
+
+    private void rbCalculo02MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbCalculo02MousePressed
+        // TODO add your handling code here:
+        tfCSSL02.setEnabled(true);
+        tfIRPJ02.setEnabled(true);
+
+        tfPIS.setText("0.65");
+        tfCOFINS.setText("3");
+        tfIRPJ01.setText("12");
+        tfIRPJ02.setText("9");
+        tfCSSL01.setText("8");
+        tfCSSL02.setText("15");
+    }//GEN-LAST:event_rbCalculo02MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -569,10 +579,10 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jpPostoCombustivel;
     private javax.swing.JRadioButton rbCalculo01;
     private javax.swing.JRadioButton rbCalculo02;
     private javax.swing.JRadioButton rbPostoCombustivelNao;
