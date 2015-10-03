@@ -459,7 +459,7 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
                 tfPIS.getText(), tfCOFINS.getText(), tfIRPJ01.getText(), fIRPJ_02, tfCSSL01.getText(), 
                 fCSSL_02, tfValorHonorario.getText(), tfDiaVencimento.getText(), fStatus);
         } 
-        Cadastrar_Empresa_Window.this.hide();
+        Cadastrar_Empresa_Window.this.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -509,10 +509,10 @@ public class Cadastrar_Empresa_Window extends javax.swing.JFrame {
         tfCSSL02.setEnabled(false);
         tfIRPJ02.setEnabled(false);
         
-        tfPIS.setText("0,65");
+        tfPIS.setText("0.65");
         tfCOFINS.setText("3");
-        tfIRPJ01.setText("1,2");
-        tfCSSL01.setText("1,08");
+        tfIRPJ01.setText("1.2");
+        tfCSSL01.setText("1.08");
 
     }//GEN-LAST:event_rbCalculo01ActionPerformed
 

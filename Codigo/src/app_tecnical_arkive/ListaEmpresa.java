@@ -201,10 +201,16 @@ public class ListaEmpresa extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Cadastrar_Empresa_Window addEmpresa = new Cadastrar_Empresa_Window();
-        addEmpresa.setVisible(true);
-        addEmpresa.setLocationRelativeTo(null);
-        addEmpresa.setResizable(false);
+        if (addEmpresa == null) {
+            addEmpresa = new Cadastrar_Empresa_Window();
+            addEmpresa.setVisible(true);
+            addEmpresa.setLocationRelativeTo(null);
+            addEmpresa.setResizable(false);
+        }else{
+            addEmpresa.setVisible(true);
+            addEmpresa.setLocationRelativeTo(null);
+            addEmpresa.setResizable(false);
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
@@ -258,4 +264,7 @@ public class ListaEmpresa extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+    
+    Cadastrar_Empresa_Window addEmpresa;
+    
 }

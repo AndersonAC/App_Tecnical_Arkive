@@ -306,7 +306,7 @@ public class ConfirmarDados extends javax.swing.JFrame {
                     lbCSSL_01.getText(), lbCSSL_02.getText(), lbValorHonorario.getText(),
                     lbDiaVencimento.getText(), lbStatus.getText());
         }
-        ConfirmarDados.this.hide();
+        ConfirmarDados.this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
@@ -350,11 +350,20 @@ public class ConfirmarDados extends javax.swing.JFrame {
             status = false;
         }
         
-        Empresa empresa = new Empresa();
-        empresa.cadastrar(nome, regime, diaVencimento, valorHonorário,
-                pis, cofins, irpj_1, irpj_2, cssl_1, cssl_2, posto, status);
-        empresa.Detalhar(nome);
+        Arquivo empresa = new Arquivo();
+        int cod = 0;
+        try {
+            cod = empresa.LerCodigoEmpresa();
         
+        
+        empresa.cadastrarEmpresa(cod, nome, regime, diaVencimento, valorHonorário,
+                pis, cofins, irpj_1, irpj_2, cssl_1, cssl_2, posto, status);
+        empresa.Detalhar(nome,cod);
+        empresa.CriarCodigoEmpresa(cod);
+        ConfirmarDados.this.dispose();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
