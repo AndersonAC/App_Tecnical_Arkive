@@ -315,11 +315,11 @@ public class ConfirmarDados extends javax.swing.JFrame {
         nome = lbNomeEmpresa.getText();
         
         if (lbRegime.getText() == "Simples") {
-            regime = 0;
-        }else if (lbRegime.getText() == "Presumido") {
             regime = 1;
-        }else if (lbRegime.getText() == "Real") {
+        }else if (lbRegime.getText() == "Presumido") {
             regime = 2;
+        }else if (lbRegime.getText() == "Real") {
+            regime = 3;
         }
         
         diaVencimento = Integer.parseInt(lbDiaVencimento.getText());
@@ -351,16 +351,23 @@ public class ConfirmarDados extends javax.swing.JFrame {
         }
         
         Arquivo empresa = new Arquivo();
-        int cod = 0;
         try {
-            cod = empresa.LerCodigoEmpresa();
+            cod = empresa.lerCodigoEmpresa();
+            
+            System.out.println("codigo: "+cod);
+            
+            empresa.cadastrarEmpresa(cod, nome, regime, diaVencimento, valorHonorário,
+                    pis, cofins, irpj_1, irpj_2, cssl_1, cssl_2, posto, status);
+            empresa.detalharUnicaEmpresa(nome,cod);
+            
+            empresa.cadastrarLista(cod, nome, status);
+            //empresa.detalharArquivoLista();
+            
+            empresa.criarCodigoEmpresa(cod);
+            
+            ConfirmarDados.this.dispose();
+
         
-        
-        empresa.cadastrarEmpresa(cod, nome, regime, diaVencimento, valorHonorário,
-                pis, cofins, irpj_1, irpj_2, cssl_1, cssl_2, posto, status);
-        empresa.Detalhar(nome,cod);
-        empresa.CriarCodigoEmpresa(cod);
-        ConfirmarDados.this.dispose();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -435,7 +442,7 @@ public class ConfirmarDados extends javax.swing.JFrame {
     
     Cadastrar_Empresa_Window voltarParaCadastro;
     String nome;
-    int regime, diaVencimento;
+    int regime, cod, diaVencimento;
     double valorHonorário, pis, cofins, irpj_1, irpj_2, cssl_1, cssl_2;
     boolean posto, status;
     
