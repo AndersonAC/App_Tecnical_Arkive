@@ -360,8 +360,11 @@ public class ConfirmarDados extends javax.swing.JFrame {
                     pis, cofins, irpj_1, irpj_2, cssl_1, cssl_2, posto, status);
             empresa.detalharUnicaEmpresa(nome,cod);
             
-            empresa.cadastrarLista(cod, nome, status);
+            
+            //empresa.cadastrarLista(cod, nome, status);
             //empresa.detalharArquivoLista();
+            empresa.cadastrarMyList(cod, nome, status);
+            
             
             empresa.criarCodigoEmpresa(cod);
             

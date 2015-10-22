@@ -234,4 +234,88 @@ public class Arquivo
             System.out.println("Error: detalharArquivoLista -_- " + e);
         }
     }
+    //////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    //Cadatrar Lista Anderson's Style
+    public void cadastrarMyList(int cod, String nome, boolean status){
+        try {
+            File arquivo = new File("ListaEmpresas.bitae");
+            if(arquivo.exists()){
+               System.out.println("O arquivo "+arquivo+" EXISTE");
+               criarArquivoListaMesclado(cod, nome, status);
+            }
+            else{
+                System.out.println("O arquivo "+arquivo+" NÂO EXISTE");
+                criarArquivoLista(cod, nome, status, arquivo);
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Erro no cadastro da lista: "+e.toString());
+        }
+    }
+    //Cria o primeiro arquivo da lista
+    private void criarArquivoLista(int cod, String nome,boolean status, File arquivo){
+        try{
+            FileOutputStream fos = new FileOutputStream(arquivo);
+            DataOutputStream dos = new DataOutputStream(fos);
+
+
+            dos.writeInt(cod);                          //00\\Código ++ em arquivo
+            dos.writeUTF(String.format("%-100s", nome));//01\\Ate 100 de tamanho de nome
+            dos.writeBoolean(status);                   //02\\Ativado ou desativado -|- T or F
+
+            dos.close();
+        }catch(Exception e){
+            System.out.println("Erro na criação da primeira lista: "+e.toString());
+        }
+    }
+    ////////////////////////////////////////////////////////////
+    private void criarArquivoListaMesclado(int cod, String nome,boolean status)throws Exception{
+        File arquivo = new File("ListaEmpresas.bitae");
+        File arquivoTemp = new File("arquivoTemp.bitae");
+        
+        int codAux;
+        String nomeAux;
+        boolean statusAux;
+        
+        FileInputStream fis1 = new FileInputStream(arquivo);
+        DataInputStream dis1 = new DataInputStream(fis1);
+        
+        FileOutputStream fos2 = new FileOutputStream(arquivoTemp);
+        DataOutputStream dos2 = new DataOutputStream(fos2);
+        
+        ///2ª parte
+        FileInputStream fis2 = new FileInputStream(arquivoTemp);
+        DataInputStream dis2 = new DataInputStream(fis2);
+        
+        FileOutputStream fos1 = new FileOutputStream(arquivo);
+        DataOutputStream dos1 = new DataOutputStream(fos1);
+        
+        codAux = dis1.readInt();
+        dos2.writeInt(codAux);
+        while((nomeAux = dis1.readUTF()) != " "){
+            dos2.writeUTF(String.format("%-100s", nomeAux));
+            statusAux = dis1.readBoolean();
+            dos2.writeBoolean(statusAux);
+            codAux = dis1.readInt();
+            dos2.writeInt(codAux);
+            
+        }
+        dos2.close();
+        
+        while((codAux = dis2.readInt()) != -1){
+            dos1.writeInt(codAux);                          //00\\Código ++ em arquivo
+            nomeAux = dis2.readUTF();
+            dos1.writeUTF(String.format("%-100s", nomeAux));//01\\Ate 100 de tamanho de nome
+            statusAux = dis2.readBoolean();
+            dos1.writeBoolean(statusAux);                   //02\\Ativado ou desativado -|- T or F   
+        }
+        
+        dos1.writeInt(cod);                          //00\\Código ++ em arquivo
+        dos1.writeUTF(String.format("%-100s", nome));//01\\Ate 100 de tamanho de nome
+        dos1.writeBoolean(status);                   //02\\Ativado ou desativado -|- T or F
+
+        dos1.close();
+        
+        arquivoTemp.deleteOnExit();
+    }
 }
